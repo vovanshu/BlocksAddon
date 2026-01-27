@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+.items-block-slick {
+    position: relative;
+    padding-bottom: 25px;
+    margin: 1rem 0;
+}
+
+.items-block-slick .block-title {
+    font-size: 24px;
+}
+
+.items-block-slick .slick-slider .slick-list {
+    height: 100%;
+}
+
+.items-block-slick .slick-slider {
+    padding: 0 3rem;
+}
+
+.items-block-slick .slick-prev {
+    left: .5rem;
+}
+
+.items-block-slick .slick-next {
+    right: .5rem;
+}
+
+.items-block-slick .slick-track {
+    display: flex;
+    height: 100%;
+    gap: 20px;
+}
+
+.items-block-slick .slick-dots {
+    left: 0;
+    right: 0;
+    bottom: -10px;
+}
+
+.items-block-slick .slick-slide {
+    display: flex;
+    flex-flow: column;
+    position: relative;
+    /* text-align: center; */
+    line-height: 1;
+    outline: none;
+    padding: 0 10px;
+}
+
+.slick-slide:focus {
+    outline: 1px dotted;
+}
+
+.slick-slide img {
+    display: flex;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    /* max-height:100%; */
+    margin: auto;
+}
+
+.slick-slide .slide-text {
+    margin: 0;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    padding: 10px;
+}
+
+.slick-slide .slide-text .title {
+    font-weight: bold;
+}
+
+.slick-initialized .slick-slide {
+    display: flex;
+}
+
+.slick-vertical .slick-slide {
+    display: flex;
+}
+
+.slick-track .slick-slide {
+    display: flex;
+    height: auto;
+    /* justify-content: center; */
+    word-wrap: break-word;
+}
+
+.slick-next:before,
+.slick-prev:before {
+    color: black;
+}
+
+.slick-autoplay-toggle-button .slick-play-icon:before,
+.slick-autoplay-toggle-button .slick-pause-icon:before {
+    font-family: "Font Awesome 5 Free";
+    font-size: 14px;
+    font-weight: 900;
+    color: black;
+}
+
+.slick-autoplay-toggle-button .slick-play-icon:before {
+    content: "\f04b";
+}
+
+.slick-autoplay-toggle-button .slick-pause-icon:before {
+    content: "\f04c";
+}
+
+.items-block-slick .button-view {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}

@@ -1,0 +1,104 @@
+<?php
+
+// $plugins = $this->getHelperPluginManager();
+// $siteSlug = $this->params()->fromRoute('site-slug')
+//     ?? (($site = $plugins->get('Laminas\View\Helper\ViewModel')->getRoot()->getVariable('site')) ? $site->slug() : null)
+//     // TODO Store the default site slug, not only the default site id.
+//     // If no default site, get the first public one.
+//     ?? (($site = $api->searchOne('sites', ['id' => $plugins->get('setting')('default_site'), 'sort_by' => 'is_public', 'sort_order' => 'desc'])->getContent()) ? $site->slug() : null);
+
+$BlocklID = 'property-list-values-' . $blockID;
+// $filterLocale = (bool) $this->siteSetting('filter_locale_values');
+// $lang = $this->lang();
+// $translate = $this->plugin('translate');
+// $valueLang = $filterLocale ? [$lang, ''] : null;
+?>
+<div id="<?= $BlocklID; ?>" class="property-list-values">
+	<?php if ($blockTitle): ?>
+		<div class="block-title">
+		<?php if ($blockTitleUrl): ?>
+			<a href="<?= $blockTitleUrl; ?>"><?= $blockTitle; ?></a>
+		<?php else: ?>
+			<?= $blockTitle; ?>
+		<?php endif; ?>
+		</div>
+	<?php endif; ?>
+	<div class="block-content">
+		<ul>
+	<?php
+
+		foreach ($list as $val => $total) {
+
+			echo '<li>';
+			if($total > 1 && $showTotalValues == 'true'){
+				$title = $val.' ('.$total.')';
+			}else{
+				$title = $val;
+			}
+
+			$query = [
+				'query' => [
+					// 'Search' => '',
+                	'property[0][property]' => $term,
+                	'property[0][type]' => 'eq',
+                	'property[0][text]' => $val,
+				]
+			];
+
+			echo $this->hyperlink($title, $this->url('site/resource', ['site-slug' => $siteSlug, 'controller' => 'item', 'action' => 'browse'], $query, false));
+
+			// $this->hyperlink($translate('Advanced search'), $this->url(null, ['action' => 'search'], ['query' => $this->params()->fromQuery()], true), ['class' => 'advanced-search']);
+
+			echo '</li>';
+			
+		}
+
+		// foreach ($attachments as $attachment) {
+		// 	// Skip if item doesn't exist
+		// 	if (!$attachment) {
+		// 		continue;
+		// 	}
+		// 	$media = $attachment->media() ? $attachment->media()[0] : $attachment->primaryMedia();
+		// 	$caption = $this->showCaption == 'true' ? $attachment->displayDescription(null, $valueLang) : '';
+		// 	$title = '';
+
+		// 	if(!empty($caption) && mb_strlen($caption) > 500){
+		// 		$caption = mb_substr($caption, 0, 500).'...';
+		// 	}
+						
+		// 	if ($this->showTitleOption == 'item_title') {
+		// 		$title = $attachment->displayTitle(null, $valueLang);
+		// 	} elseif ($this->showTitleOption == 'file_name') {			
+		// 		$title = $media ? $media->displayTitle(null, $valueLang) : $attachment->displayTitle(null, $valueLang);
+		// 	}
+			
+		// 	if($this->itemTitleAsLink == 'true'){
+		// 		$textTitle = $attachment->linkRaw($title);
+		// 	}else{
+		// 		$textTitle = $title;
+		// 	}
+
+			
+		// 	echo '</div>';
+		// }
+	?>
+		</ul>
+	</div>
+
+	<?php if (!empty($this->blockStyle) || !empty($this->blockTitleStyle) || !empty($this->blockStyleList)): ?>
+	<style>
+	#<?= $BlocklID; ?> {
+		<?php if (!empty($this->blockStyle)): ?>
+		.property-list-values {<?= $this->blockStyle ?>}
+		<?php endif; ?>
+		<?php if (!empty($this->blockTitleStyle)): ?>
+		.block-title {<?= $this->blockTitleStyle ?>}
+		<?php endif; ?>
+		<?php if (!empty($this->blockStyleList)): ?>
+		.block-content {<?= $this->blockStyleList ?>}
+		<?php endif; ?>
+	}
+	</style>
+	<?php endif; ?>
+
+</div>

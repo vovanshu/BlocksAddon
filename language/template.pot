@@ -1,0 +1,167 @@
+msgid ""
+msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"MIME-Version: 1.0\n"
+"POT-Creation-Date: 2025-09-25 10:33+0300\n"
+"Project-Id-Version: BlocksAddon\n"
+"X-Domain: BlocksAddon\n"
+"X-Generator: LanguagesManager\n"
+
+#: modules/BlocksAddon/src/Form/ItemsListFieldset.php:81
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:484
+msgid "Item title as link"
+msgstr ""
+
+#: modules/BlocksAddon/src/Form/ItemsListFieldset.php:99
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:410
+msgid "Show attachment thumbnail"
+msgstr ""
+
+#: modules/BlocksAddon/src/Form/ItemsListFieldset.php:117
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:428
+msgid "Show attachment caption"
+msgstr ""
+
+#: modules/BlocksAddon/src/Form/ItemsListFieldset.php:135
+msgid "Show button view"
+msgstr ""
+
+#: modules/BlocksAddon/src/Form/ItemsSearchQueryFieldset.php:24
+msgid "Entries per page"
+msgstr ""
+
+#: modules/BlocksAddon/src/Form/ItemsSearchQueryFieldset.php:59
+#: modules/BlocksAddon/src/Form/ItemsSearchQueryFieldset.php:60
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:585
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:586
+#: modules/BlocksAddon/src/Site/BlockLayout/PropertyListValues.php:87
+#: modules/BlocksAddon/src/Site/BlockLayout/PropertyListValues.php:88
+msgid "Items site attachments only"
+msgstr ""
+
+#: modules/BlocksAddon/src/Form/ItemsSearchQueryFieldset.php:95
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:621
+#: modules/BlocksAddon/src/Site/BlockLayout/PropertyListValues.php:99
+msgid "The search to be performed when the topic is clicked"
+msgstr ""
+
+#: modules/BlocksAddon/src/Form/PropertieListValuesFieldset.php:60
+msgid "Show total values"
+msgstr ""
+
+#: modules/BlocksAddon/src/Form/PropertieListValuesFieldset.php:70
+msgid "Nav by page for values"
+msgstr ""
+
+#: modules/BlocksAddon/src/Form/PropertieListValuesFieldset.php:99
+msgid "sort_by"
+msgstr ""
+
+#: modules/BlocksAddon/src/Form/PropertieListValuesFieldset.php:101
+msgid "Alphabetic"
+msgstr ""
+
+#: modules/BlocksAddon/src/Form/PropertieListValuesFieldset.php:115
+msgid "sort_order"
+msgstr ""
+
+#: modules/BlocksAddon/src/Form/PropertieListValuesFieldset.php:117
+msgid "Asc"
+msgstr ""
+
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:123
+msgid "Vertical slider"
+msgstr ""
+
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:133
+msgid "Swipe to slide"
+msgstr ""
+
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:143
+msgid "Items per slide"
+msgstr ""
+
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:156
+msgid "Slides to scroll"
+msgstr ""
+
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:211
+msgid "Breakpoint"
+msgstr ""
+
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:220
+msgid "Auto slide duration"
+msgstr ""
+
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:229
+msgid "Infinite loop"
+msgstr ""
+
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:248
+msgid "Draggable"
+msgstr ""
+
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:258
+msgid "Pause on hover"
+msgstr ""
+
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:268
+msgid "Pause on focus"
+msgstr ""
+
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:286
+msgid "Center mode"
+msgstr ""
+
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:296
+msgid "Display arrows"
+msgstr ""
+
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:322
+msgid "Display dots"
+msgstr ""
+
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:340
+msgid "Fade between slides"
+msgstr ""
+
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:341
+msgid "Note: only works with 1 item per slide"
+msgstr ""
+
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:446
+msgid "Overlay title/caption"
+msgstr ""
+
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:447
+msgid "Place title/caption over image (may require adjusting theme CSS text settings)"
+msgstr ""
+
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:457
+msgid "Text align"
+msgstr ""
+
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:470
+msgid "Stretch image"
+msgstr ""
+
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:473
+msgid "Fill width"
+msgstr ""
+
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:474
+msgid "Fill height"
+msgstr ""
+
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:494
+msgid "Display button view"
+msgstr ""
+
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:550
+msgid "Limit Items"
+msgstr ""
+
+#: modules/BlocksAddon/src/Site/BlockLayout/PropertyListValues.php:74
+msgid "Limit Entries"
+msgstr ""

@@ -1,0 +1,99 @@
+<?php
+$slickBlocklID = 'block-items-list-' . $blockID;
+$filterLocale = (bool) $this->siteSetting('filter_locale_values');
+$lang = $this->lang();
+$translate = $this->plugin('translate');
+$valueLang = $filterLocale ? [$lang, ''] : null;
+?>
+<div id="<?= $slickBlocklID; ?>" class="items-list">
+	<?php if (!empty($data['blockTitle'])): ?>
+	<div class="block-title"><?= $data['blockTitle']; ?></div>
+	<?php endif; ?>
+	<div id="<?= $slickBlocklID; ?>-list" class="list-content">
+	<?php
+		foreach ($attachments as $attachment) {
+			// Skip if item doesn't exist
+			if (!$attachment) {
+				continue;
+			}
+			$media = $attachment->media() ? $attachment->media()[0] : $attachment->primaryMedia();
+			$caption = $data['captionShow'] == 'true' ? $attachment->displayDescription(null, $valueLang) : '';
+			$title = '';
+			if(!empty($caption) && mb_strlen($caption) > 500){
+				$caption = mb_substr($caption, 0, 500).'...';
+			}	
+			if ($showTitleOption == 'item_title') {
+				$title = $attachment->displayTitle(null, $valueLang);
+			} elseif ($showTitleOption == 'file_name') {			
+				$title = $media ? $media->displayTitle(null, $valueLang) : $attachment->displayTitle(null, $valueLang);
+			}
+			if($data['itemTitleAsLink'] == 'true'){
+				$textTitle = $attachment->linkRaw($title);
+			}else{
+				$textTitle = $title;
+			}
+			echo '<div class="wrapper-entrie">';
+			echo '<div class="wrapper-text">';
+			if ($showTitleOption != 'no_title') {
+				echo '<div class="title">'.$textTitle.'</div>';
+			}
+			if ($data['captionShow'] == 'true') {
+				echo '<div class="caption">'.$caption.'</div>';
+			} 			
+			echo '</div>';
+			if($data['thumbnailShow'] == 'true'){
+				echo '<div class="thumbnail">';
+				if(!empty($media)){
+					echo $this->thumbnail($media, $thumbnailType, []);
+				}else{
+					echo '<img src="/application/asset/thumbnails/default.png" alt="">';
+				}
+				echo '</div>';
+			}
+			if($data['buttonViewShow'] == 'true'){
+			echo '<div class="button-view">' . $attachment->linkRaw($translate($data['buttonView']), Null, ['class' => 'button-view-link']) .'</div>';		
+			}
+			echo '</div>';
+		}
+	?>
+	</div>
+
+<?php
+	if (!empty($styles)){
+		echo '<style>';
+		if(!empty($styles['blockStyle'])){
+			echo '#'.$slickBlocklID.'.items-list{'.$styles['blockStyle'].'}';
+		}
+		echo '#'.$slickBlocklID.'{';
+		if(!empty($styles['blockTitleStyle'])){
+			echo '.block-title{'.$styles['blockTitleStyle'].'}';
+		}
+		if(!empty($styles['listContentStyle'])){
+			echo '.list-content{'.$styles['listContentStyle'].'}';
+		}
+		if(!empty($styles['entrieStyle'])){
+			echo '.wrapper-entrie{'.$styles['entrieStyle'].'}';
+		}
+		if(!empty($styles['textStyle'])){
+			echo 'wrapper-entrie .wrapper-text{'.$styles['textStyle'].'}';
+		}
+		if(!empty($styles['titleStyle'])){
+			echo 'wrapper-entrie .wrapper-text .title{'.$styles['titleStyle'].'}';
+		}
+		if(!empty($styles['captionStyle'])){
+			echo 'wrapper-entrie .wrapper-text.caption{'.$styles['captionStyle'].'}';
+		}
+		if(!empty($styles['thumbnailStyle'])){
+			echo 'wrapper-entrie .thumbnail{'.$styles['thumbnailStyle'].'}';
+		}
+		if(!empty($styles['buttonViewStyle'])){
+			echo 'wrapper-entrie .button-view{'.$styles['buttonViewStyle'].'}';
+		}
+		if(!empty($styles['buttonViewStyleLnk'])){
+			echo '.button-view-link{'.$styles['buttonViewStyleLnk'].'}';
+		}
+		echo '}</style>';
+	}
+?>
+
+</div>

@@ -1,0 +1,242 @@
+<?php
+$slickBlocklID = 'block-slick-' . $blockID;
+$filterLocale = (bool) $this->siteSetting('filter_locale_values');
+$lang = $this->lang();
+$translate = $this->plugin('translate');
+$valueLang = $filterLocale ? [$lang, ''] : null;
+?>
+<div id="<?= $slickBlocklID; ?>" class="items-block-slick">
+	<?php if ($this->blockTitle): ?>
+	<div class="block-title"><?= $this->blockTitle; ?></div>
+	<?php endif; ?>
+	<div id="<?= $slickBlocklID; ?>-slider" class="slider-content">
+	<?php
+		foreach ($attachments as $attachment) {
+			// Skip if item doesn't exist
+			if (!$attachment) {
+				continue;
+			}
+			$media = $attachment->media() ? $attachment->media()[0] : $attachment->primaryMedia();
+			$caption = $this->showCaption == 'true' ? $attachment->displayDescription(null, $valueLang) : '';
+			$title = '';
+			
+			if(!empty($caption) && mb_strlen($caption) > $captionLengthLimit){
+				$caption = mb_substr($caption, 0, $captionLengthLimit).'...';
+			}	
+			if ($this->showTitleOption == 'item_title') {
+				$title = $attachment->displayTitle(null, $valueLang);
+			} elseif ($this->showTitleOption == 'file_name') {			
+				$title = $media ? $media->displayTitle(null, $valueLang) : $attachment->displayTitle(null, $valueLang);
+			}
+			if($this->itemTitleAsLink == 'true'){
+				$textTitle = $attachment->linkRaw($title);
+			}else{
+				$textTitle = $title;
+			}
+
+			if(!empty($textTitle) && mb_strlen($textTitle) > $titleLengthLimit){
+				$textTitle = mb_substr($textTitle, 0, $titleLengthLimit).'...';
+			}	
+
+			// $textTitle .= ' - '.$textLengthLimit.' - '.$titleLengthLimit.' - '.$captionLengthLimit.' - '.mb_strlen($caption);
+			echo '<div id="items-block-slick-slide" class="slide">';
+
+			if ($this->showTitleOption != 'no_title' && $this->showCaption == 'true' && ((mb_strlen($textTitle) + mb_strlen($caption)) <= $textLengthLimit+6)) {
+				echo '<div class="slide-text"><div class="title">'.$textTitle.'</div><div class="caption">'.$caption.'</div></div>';
+			}elseif ($this->showTitleOption != 'no_title' && ( $this->showCaption == 'false' || $this->showCaption == 'true' && ((mb_strlen($textTitle) + mb_strlen($caption)) > $textLengthLimit+6))) {
+				echo '<div class="slide-text"><div class="title">'.$textTitle.'</div></div>';
+			}elseif ($this->showCaption == 'true' && $this->showTitleOption == 'no_title') {
+				echo '<div class="slide-text"><div class="caption">'.$caption.'</div></div>';
+			}
+			
+			// if ($this->showTitleOption == 'no_title' && $this->showCaption == 'false') {
+			// } elseif ($this->showTitleOption == 'no_title' && $this->showCaption == 'true') {
+			// 	echo '<div class="slide-text"><div class="caption">'.$caption.'</div></div>';
+			// } elseif ($this->showTitleOption != 'no_title' && $this->showCaption == 'false') {
+			// 	echo '<div class="slide-text"><div class="title">'.$textTitle.'</div></div>';
+			// } else {
+			// 	echo '<div class="slide-text"><div class="title">'.$textTitle.'</div><div class="caption">'.$caption.'</div></div>';
+			// }
+
+			if($this->showThumbnail == 'true'){
+				echo '<div class="thumbnail">';
+				if(!empty($media)){
+					echo $this->thumbnail($media, $this->thumbnailType, []);
+				}else{
+					echo '<img src="/application/asset/thumbnails/default.png" alt="">';
+				}
+				echo '</div>';
+			}
+			if($this->displayButtonView == 'true'){
+				echo '<div class="button-view">' . $attachment->linkRaw($translate($this->textButtonView), Null, ['class' => 'button-view-link']) .'</div>';	
+			}
+			echo '</div>';
+		}
+	?>
+	</div>
+
+	<script>
+	$(document).ready(function() {
+		$('#<?= $slickBlocklID; ?>-slider')
+			.slick({
+				slidesToShow: <?php echo $this->perPage ?>,
+				slidesToScroll: <?php echo $this->slidesToScroll ?>,
+				infinite: <?php echo $this->loop ?>,
+				draggable: <?php echo $this->draggable ?>,
+				<?php if ($this->fade): ?>
+				fade: <?php echo $this->fade ?>,
+				<?php endif; ?>
+				<?php if ($this->autoSlideDuration > 0): ?>
+				autoplay: true,
+				autoplaySpeed: <?php echo $this->autoSlideDuration ?>,
+				<?php endif; ?>
+				pauseOnHover: <?= $this->pauseOnHover ?>,
+				pauseOnFocus: <?= $this->pauseOnFocus ?>,
+				<?php if ($this->centerMode == 'true'): ?>
+				centerMode: <?= $this->centerMode ?>,
+				centerPadding: '<?= $this->centerPadding ?>px',
+				<?php endif; ?>
+				arrows: <?= $this->displayArrows ?>,
+				dots: <?= $this->displayDots ?>,
+				speed: <?= $this->speedSlider ?>,
+				vertical: <?= $this->verticalSlider ?>,
+				verticalSwiping: <?= $this->verticalSlider ?>,
+				swipeToSlide: <?= $this->swipeToSlide ?>,
+				rows: <?= $this->sliderRows ?>,
+				slidesPerRow: <?= $this->slidesPerRow ?>,
+				zIndex: <?= $this->zIndex ?>,
+				<?php if (!empty($this->breakPoint)): ?>
+				responsive: [
+					{
+						breakpoint: <?php echo $this->breakPoint ?>,
+						settings: {
+							slidesToShow: 1,
+						}
+					}
+				]
+				<?php endif; ?>
+			});
+		$('.<?php echo $slickBlocklID; ?>').on('touchstart', e => {
+			// Only 'restart' autoplay on mobile if it's selected in settings
+				<?php if ($this->autoSlideDuration > 0): ?>
+		$('.<?php echo $slickBlocklID; ?>').slick('slickPlay');
+				<?php endif; ?>
+			});
+		$('.<?php echo $slickBlocklID; ?> .slick-slide').css({
+			'text-align': '<?php echo $this->slideCSSTextAlign ?>',
+			});
+		<?php if ($this->perPage > 1): ?>
+			$('.<?php echo $slickBlocklID; ?> .slick-track').css({
+				'align-items': 'center',
+			});
+		<?php endif; ?>
+		<?php if ($this->slideCSSStretch == 'width'): ?>
+		$('.<?php echo $slickBlocklID; ?> .slick-slide > div').css({
+				'width': '100%',
+			});
+		$('.<?php echo $slickBlocklID; ?> .slick-slide img').css({
+				'width': '100%',
+				'object-fit': 'cover',
+			});
+		$('.<?php echo $slickBlocklID; ?> .slick-track').css({
+				'align-items': 'initial',
+			});
+		<?php endif; ?>
+		<?php if ($this->slideCSSStretch == 'height'): ?>
+		$('.<?php echo $slickBlocklID; ?> .slick-slide > div').css({
+				'height': '100%',
+			});
+		$('.<?php echo $slickBlocklID; ?> .slick-slide img').css({
+				'height': '100%',
+				'object-fit': 'cover',
+			});
+		$('.<?php echo $slickBlocklID; ?> .slick-track').css({
+				'align-items': 'initial',
+			});
+		<?php endif; ?>
+		<?php if ($this->slideCSSStretch == 'entire'): ?>
+		$('.<?php echo $slickBlocklID; ?> .slick-slide > div').css({
+				'width': '100%',
+				'height': '100%',
+			});
+		$('.<?php echo $slickBlocklID; ?> .slick-slide img').css({
+				'width': '100%',
+				'height': '100%',
+				'object-fit': 'cover',
+			});
+		$('.<?php echo $slickBlocklID; ?> .slick-track').css({
+				'align-items': 'initial',
+			});
+		<?php endif; ?>
+		<?php if ($this->floatCaption == 'true'): ?>
+		$('.<?php echo $slickBlocklID; ?> .slick-slide > div').css({
+				'position': 'relative',
+			});
+		$('.<?php echo $slickBlocklID; ?> .slick-slide .slide-text').css({
+				'position': 'absolute',
+				'top': '50%',
+				'width': '100%',
+			});			
+		<?php endif; ?>
+		<?php if ($this->thumbnailType != 'large'): ?>
+		$('.<?php echo $slickBlocklID; ?> .slick-track .slick-slide').css({
+				'align-items': 'center',
+			});
+		<?php endif; ?>
+
+
+	});
+	</script>
+	
+
+<?php
+	if (!empty($styles)){
+		echo '<style>';
+		if(!empty($styles['blockStyle'])){
+			echo '#'.$slickBlocklID.'.items-block-slick{'.$styles['blockStyle'].'}';
+		}
+		echo '#'.$slickBlocklID.'{';
+		if(!empty($styles['sliderContentStyle'])){
+			echo '.slider-content{'.$styles['sliderContentStyle'].'}';
+		}
+		if(!empty($styles['blockTitleStyle'])){
+			echo '.block-title{'.$styles['blockTitleStyle'].'}';
+		}
+		if(!empty($styles['slideStyle'])){
+			echo '.slide{'.$styles['slideStyle'].'}';
+		}
+		if(!empty($styles['slideText'])){
+			echo '.slide-text{'.$styles['slideText'].'}';
+		}
+		if(!empty($styles['slideTitle'])){
+			echo '.slide-text .title{'.$styles['slideTitle'].'}';
+		}
+		if(!empty($styles['slideTitleLink'])){
+			echo '.slide-text .title > a{'.$styles['slideTitleLink'].'}';
+		}
+		if(!empty($styles['slideCaption'])){
+			echo '.slide-text .caption{'.$styles['slideCaption'].'}';
+		}
+		if(!empty($styles['slideThumbnail'])){
+			echo '.thumbnail{'.$styles['slideThumbnail'].'}';
+		}
+		if(!empty($styles['arrowRStyle'])){
+			echo '.slick-next{'.$styles['arrowRStyle'].'}';
+		}
+		if(!empty($styles['arrowLStyle'])){
+			echo '.slick-prev{'.$styles['arrowLStyle'].'}';
+		}
+		if(!empty($styles['pplayStyle'])){
+			echo '.slick-autoplay-toggle-button{'.$styles['pplayStyle'].'}';
+		}
+		if(!empty($styles['styleButtonView'])){
+			echo '.button-view{'.$styles['styleButtonView'].'}';
+		}
+		if(!empty($styles['styleInButtonView'])){
+			echo '.button-view-link{'.$styles['styleInButtonView'].'}';
+		}
+		echo '}</style>';
+	}
+?>
+
+</div>

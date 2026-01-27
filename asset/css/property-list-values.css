@@ -1,0 +1,27 @@
+.property-list-values {
+
+    .block-title{
+        text-align: center;
+    }
+
+    .block-content{
+
+        ul {
+
+            display: block;
+            list-style-type: disc;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            padding-inline-start: 40px;
+            unicode-bidi: isolate;
+
+            li {
+
+                display: flex;
+                gap: 12px;
+                align-items: center;
+
+            }
+        }
+    }
+}

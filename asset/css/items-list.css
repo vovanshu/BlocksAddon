@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+.items-list {
+    padding-bottom: 25px;
+    width: 100%;
+    height: 100%;
+
+    .block-title {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .list-content {
+        padding: 0px;
+        width: 100%;
+        height: 100%;
+
+        .wrapper-entrie {
+            padding: 10px;
+            margin: 10px 0px;
+
+            .wrapper-text {
+                display: block;
+                width: 80%;
+                padding: 10px;
+                float: right;
+
+                .title {
+                    font-weight: bold;
+                }
+                .caption {
+                    padding: 10px 0;
+                }
+
+            }
+
+            .thumbnail {
+                display: block;
+                height:200px;
+                width: 20%;
+                text-align: center;
+
+                img {
+                    padding: 0;
+                }
+            }
+
+            .button-view {
+                display: block;
+                position: relative;
+                padding: 6px 12px;
+                margin: 0;
+                font-size: 14px;
+                font-weight: normal;
+                text-align: center;
+                white-space: nowrap;
+            }
+
+        }
+
+    }
+
+}
