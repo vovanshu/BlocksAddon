@@ -18,6 +18,11 @@
     padding: 0 3rem;
 }
 
+.items-block-slick .slick-prev,
+.items-block-slick .slick-next {
+    z-index: 10000;
+}
+
 .items-block-slick .slick-prev {
     left: .5rem;
 }
@@ -127,4 +132,15 @@
     -ms-user-select: none;
     -o-user-select: none;
     user-select: none;
+}
+
+
+.items-block-slick .title a::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  content: "";
 }

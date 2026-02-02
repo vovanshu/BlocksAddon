@@ -17,53 +17,73 @@ $valueLang = $filterLocale ? [$lang, ''] : null;
 				continue;
 			}
 			$media = $attachment->media() ? $attachment->media()[0] : $attachment->primaryMedia();
-			$caption = $this->showCaption == 'true' ? $attachment->displayDescription(null, $valueLang) : '';
-			$title = '';
-			
-			if(!empty($caption) && mb_strlen($caption) > $captionLengthLimit){
-				$caption = mb_substr($caption, 0, $captionLengthLimit).'...';
-			}	
+
 			if ($this->showTitleOption == 'item_title') {
-				$title = $attachment->displayTitle(null, $valueLang);
+				$textTitle = $attachment->displayTitle(null, $valueLang);
 			} elseif ($this->showTitleOption == 'file_name') {			
-				$title = $media ? $media->displayTitle(null, $valueLang) : $attachment->displayTitle(null, $valueLang);
+				$textTitle = $media ? $media->displayTitle(null, $valueLang) : $attachment->displayTitle(null, $valueLang);
+			}
+			$titleLength = mb_strlen($textTitle);
+			if(!empty($textTitle) && $titleLength > $titleLengthLimit){
+				$textTitle = mb_substr($textTitle, 0, $titleLengthLimit).'...';
+				// $STitleLength = mb_strlen($textTitle);
+				$titleLength = mb_strlen($textTitle);
+				// $textLengthLimit = $textLengthLimit+3;
 			}
 			if($this->itemTitleAsLink == 'true'){
-				$textTitle = $attachment->linkRaw($title);
-			}else{
-				$textTitle = $title;
+				$textTitle = $attachment->linkRaw($textTitle);
 			}
 
-			if(!empty($textTitle) && mb_strlen($textTitle) > $titleLengthLimit){
-				$textTitle = mb_substr($textTitle, 0, $titleLengthLimit).'...';
-			}	
+			$caption = $this->showCaption == 'true' ? $attachment->displayDescription(null, $valueLang) : '';
+			$captionLength = mb_strlen($caption);
+			if(!empty($caption) && $captionLength > $captionLengthLimit){
+				$caption = mb_substr($caption, 0, $captionLengthLimit).'...';
+				// $SCaptionLength = mb_strlen($caption);
+				$captionLength = mb_strlen($caption);
+				// $textLengthLimit = $textLengthLimit+3;
+			}
+
+			$textLength = $titleLength + $captionLength;
+
+			if($titleLength < $textLengthLimit && $captionLength < $textLengthLimit && $textLength > $textLengthLimit){
+				
+				$caption = mb_substr($caption, 0, ($textLengthLimit - $titleLength)).'...';
+				// $SCaptionLength = mb_strlen($caption);
+				$captionLength = mb_strlen($caption);
+
+			}
 
 			// $textTitle .= ' - '.$textLengthLimit.' - '.$titleLengthLimit.' - '.$captionLengthLimit.' - '.mb_strlen($caption);
 			echo '<div id="items-block-slick-slide" class="slide">';
 
-			if ($this->showTitleOption != 'no_title' && $this->showCaption == 'true' && ((mb_strlen($textTitle) + mb_strlen($caption)) <= $textLengthLimit+6)) {
-				echo '<div class="slide-text"><div class="title">'.$textTitle.'</div><div class="caption">'.$caption.'</div></div>';
-			}elseif ($this->showTitleOption != 'no_title' && ( $this->showCaption == 'false' || $this->showCaption == 'true' && ((mb_strlen($textTitle) + mb_strlen($caption)) > $textLengthLimit+6))) {
-				echo '<div class="slide-text"><div class="title">'.$textTitle.'</div></div>';
-			}elseif ($this->showCaption == 'true' && $this->showTitleOption == 'no_title') {
-				echo '<div class="slide-text"><div class="caption">'.$caption.'</div></div>';
-			}
-			
-			// if ($this->showTitleOption == 'no_title' && $this->showCaption == 'false') {
-			// } elseif ($this->showTitleOption == 'no_title' && $this->showCaption == 'true') {
-			// 	echo '<div class="slide-text"><div class="caption">'.$caption.'</div></div>';
-			// } elseif ($this->showTitleOption != 'no_title' && $this->showCaption == 'false') {
-			// 	echo '<div class="slide-text"><div class="title">'.$textTitle.'</div></div>';
-			// } else {
+			// if ($this->showTitleOption != 'no_title' && $this->showCaption == 'true') {
 			// 	echo '<div class="slide-text"><div class="title">'.$textTitle.'</div><div class="caption">'.$caption.'</div></div>';
+			// }elseif ($this->showTitleOption != 'no_title' && ( $this->showCaption == 'false' || $this->showCaption == 'true' && ($textLength > $textLengthLimit))) {
+			// 	echo '<div class="slide-text"><div class="title">'.$textTitle.'</div></div>';
+			// }elseif ($this->showCaption == 'true' && $this->showTitleOption == 'no_title') {
+			// 	echo '<div class="slide-text"><div class="caption">'.$caption.'</div></div>';
 			// }
+			
+			if ($this->showTitleOption == 'no_title' && $this->showCaption == 'false') {
+			} elseif ($this->showTitleOption == 'no_title' && $this->showCaption == 'true') {
+				echo '<div class="slide-text"><div class="caption">'.$caption.'</div></div>';
+			} elseif ($this->showTitleOption != 'no_title' && ($this->showCaption == 'false' || $textLength < $textLengthLimit+7)) {
+				echo '<div class="slide-text"><div class="title">'.$textTitle.'</div></div>';
+			} else {
+				echo '<div class="slide-text"><div class="title">'.$textTitle.'</div><div class="caption">'.$caption.'</div></div>';
+			}
 
 			if($this->showThumbnail == 'true'){
 				echo '<div class="thumbnail">';
 				if(!empty($media)){
-					echo $this->thumbnail($media, $this->thumbnailType, []);
+					$thumbnail = $this->thumbnail($media, $this->thumbnailType, []);
 				}else{
-					echo '<img src="/application/asset/thumbnails/default.png" alt="">';
+					$thumbnail = '<img src="/application/asset/thumbnails/default.png" alt="">';
+				}
+				if($this->itemThumbnailAsLink == 'true'){
+					echo $attachment->linkRaw($thumbnail);
+				}else{
+					echo $thumbnail;
 				}
 				echo '</div>';
 			}

@@ -68,6 +68,7 @@ class ItemsSliderSlick extends AbstractBlockLayout
             'site_attachments_only' => 'true',
             'items_query' => '',
             'itemTitleAsLink' => 'true',
+            'itemThumbnailAsLink' => 'true',
             'displayButtonView' => 'false',
             'textButtonView' => 'View', // @translate
             'styleButtonView' => '',
@@ -533,6 +534,16 @@ class ItemsSliderSlick extends AbstractBlockLayout
         ]);
 
         $slideForm->add([
+            'name' => 'o:block[__blockIndex__][o:data][itemThumbnailAsLink]',
+            'type' => Element\Checkbox::class,
+            'options' => [
+                'label' => 'Item thumbnail as link', // @translate
+                'checked_value' => 'true',
+                'unchecked_value' => 'false',
+            ],
+        ]);
+
+        $slideForm->add([
             'name' => 'o:block[__blockIndex__][o:data][displayButtonView]',
             'type' => Element\Checkbox::class,
             'options' => [
@@ -574,6 +585,7 @@ class ItemsSliderSlick extends AbstractBlockLayout
             'o:block[__blockIndex__][o:data][slideCSSTextAlign]' => $data['slideCSSTextAlign'],
             'o:block[__blockIndex__][o:data][slideCSSStretch]' => $data['slideCSSStretch'],
             'o:block[__blockIndex__][o:data][itemTitleAsLink]' => $data['itemTitleAsLink'],
+            'o:block[__blockIndex__][o:data][itemThumbnailAsLink]' => $data['itemThumbnailAsLink'],
             'o:block[__blockIndex__][o:data][displayButtonView]' => $data['displayButtonView'],
             'o:block[__blockIndex__][o:data][textButtonView]' => $data['textButtonView'],
             'o:block[__blockIndex__][o:data][styleButtonView]' => $data['styleButtonView'],
@@ -788,6 +800,7 @@ class ItemsSliderSlick extends AbstractBlockLayout
             'displayArrows' => $block->dataValue('displayArrows'),
             'displayDots' => $block->dataValue('displayDots'),
             'itemTitleAsLink' => $block->dataValue('itemTitleAsLink'),
+            'itemThumbnailAsLink' => $block->dataValue('itemThumbnailAsLink'),
             'displayButtonView' => $block->dataValue('displayButtonView'),
             'textButtonView' => $block->dataValue('textButtonView'),
             'textLengthLimit' => $block->dataValue('textLength'),

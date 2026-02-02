@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: BlocksAddon\n"
-"POT-Creation-Date: 2026-01-27 16:24+0200\n"
+"POT-Creation-Date: 2026-02-02 16:21+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -13,17 +13,17 @@ msgstr ""
 "X-Generator: Poedit 3.8\n"
 
 #: modules/BlocksAddon/src/Form/ItemsListFieldset.php:81
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:532
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:535
 msgid "Item title as link"
 msgstr "Заголовок Елемента як посилання"
 
 #: modules/BlocksAddon/src/Form/ItemsListFieldset.php:99
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:449
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:452
 msgid "Show attachment thumbnail"
 msgstr "Показати мініатюру вкладення"
 
 #: modules/BlocksAddon/src/Form/ItemsListFieldset.php:117
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:467
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:470
 msgid "Show attachment caption"
 msgstr "Показати підпис вкладення"
 
@@ -37,15 +37,15 @@ msgstr "Записів на сторінці"
 
 #: modules/BlocksAddon/src/Form/ItemsSearchQueryFieldset.php:59
 #: modules/BlocksAddon/src/Form/ItemsSearchQueryFieldset.php:60
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:637
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:638
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:651
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:652
 #: modules/BlocksAddon/src/Site/BlockLayout/PropertyListValues.php:87
 #: modules/BlocksAddon/src/Site/BlockLayout/PropertyListValues.php:88
 msgid "Items site attachments only"
 msgstr "Тільки вкладення сайту"
 
 #: modules/BlocksAddon/src/Form/ItemsSearchQueryFieldset.php:95
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:673
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:687
 #: modules/BlocksAddon/src/Site/BlockLayout/PropertyListValues.php:99
 msgid "The search to be performed when the topic is clicked"
 msgstr "Пошук, який буде виконано після натискання на тему"
@@ -74,109 +74,121 @@ msgstr ""
 msgid "Asc"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:128
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:129
 msgid "Vertical slider"
 msgstr "Вертикальний слайдер"
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:138
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:139
 msgid "Swipe to slide"
 msgstr "Проведіть пальцем, щоб слайднути"
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:148
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:149
 msgid "Items per slide"
 msgstr "Елементи на слайд"
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:161
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:162
 msgid "Slides to scroll"
 msgstr "Елементи на слайд"
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:215
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:216
 msgid "Breakpoint"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:224
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:225
 msgid "Auto slide duration"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:233
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:234
 msgid "Infinite loop"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:252
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:253
 msgid "Draggable"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:262
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:263
 msgid "Pause on hover"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:272
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:273
 msgid "Pause on focus"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:290
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:291
 msgid "Center mode"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:308
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:309
 msgid "Display arrows"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:334
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:335
 msgid "Display dots"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:352
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:353
 msgid "Fade between slides"
 msgstr "Плавне перемикання між слайдами"
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:353
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:354
 msgid "Note: only works with 1 item per slide"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:415
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:416
 msgid "General text length limit"
 msgstr "Загальне обмеження довжини тексту"
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:440
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:425
+msgid "Title style"
+msgstr "Стиль Заголовку"
+
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:434
+msgid "Title link style"
+msgstr "Стиль посилання Заголовку"
+
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:443
 msgid "Title length limit"
 msgstr "Обмеження довжини заголовка"
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:485
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:488
 msgid "Caption length limit"
 msgstr "Обмеження довжини субтитрів"
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:494
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:497
 msgid "Overlay title/caption"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:495
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:498
 msgid ""
 "Place title/caption over image (may require adjusting theme CSS text "
 "settings)"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:505
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:508
 msgid "Text align"
 msgstr "Вирівнювання тексту"
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:518
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:521
 msgid "Stretch image"
 msgstr "Розтягнути зображення"
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:521
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:524
 msgid "Fill width"
 msgstr "Ширина заливки"
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:522
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:525
 msgid "Fill height"
 msgstr "Висота заповнення"
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:542
-msgid "Display button view"
-msgstr ""
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:545
+msgid "Item thumbnail as link"
+msgstr "Ескіз Елемента як посилання"
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:602
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:555
+msgid "Display button view"
+msgstr "Показувати кнопку Переглянути"
+
+#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:616
 msgid "Limit Items"
 msgstr "Обмежити Елементи"
 
