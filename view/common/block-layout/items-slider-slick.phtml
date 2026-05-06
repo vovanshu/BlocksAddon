@@ -18,6 +18,8 @@ $valueLang = $filterLocale ? [$lang, ''] : null;
 			}
 			$media = $attachment->media() ? $attachment->media()[0] : $attachment->primaryMedia();
 
+			$attachmentUrl = $attachment->siteUrl(Null, True);
+
 			if ($this->showTitleOption == 'item_title') {
 				$textTitle = $attachment->displayTitle(null, $valueLang);
 			} elseif ($this->showTitleOption == 'file_name') {			
@@ -31,7 +33,8 @@ $valueLang = $filterLocale ? [$lang, ''] : null;
 				// $textLengthLimit = $textLengthLimit+3;
 			}
 			if($this->itemTitleAsLink == 'true'){
-				$textTitle = $attachment->linkRaw($textTitle);
+				// $textTitle = $attachment->linkRaw($textTitle);
+				$textTitle = '<a href="'.$attachmentUrl.'">'.$textTitle.'</a>';
 			}
 
 			$caption = $this->showCaption == 'true' ? $attachment->displayDescription(null, $valueLang) : '';
@@ -78,10 +81,11 @@ $valueLang = $filterLocale ? [$lang, ''] : null;
 				if(!empty($media)){
 					$thumbnail = $this->thumbnail($media, $this->thumbnailType, []);
 				}else{
-					$thumbnail = '<img src="/application/asset/thumbnails/default.png" alt="">';
+					// $thumbnail = '<img src="/application/asset/thumbnails/default.png" alt="">';
+					$thumbnail = '<i class="bi bi-image fs-1"></i>';
 				}
 				if($this->itemThumbnailAsLink == 'true'){
-					echo $attachment->linkRaw($thumbnail);
+					echo '<a href="'.$attachmentUrl.'">'.$thumbnail.'</a>';
 				}else{
 					echo $thumbnail;
 				}

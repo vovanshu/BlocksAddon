@@ -414,6 +414,7 @@ class ItemsSliderSlick extends AbstractBlockLayout
             'type' => Element\Number::class,
             'options' => [
                 'label' => 'General text length limit', // @translate
+                ''
             ],
         ]);
 
@@ -422,6 +423,7 @@ class ItemsSliderSlick extends AbstractBlockLayout
             'type' => 'textarea',
             'options' => [
                 'label' => 'Title style', // @translate
+                ''
             ],
         ]);
 
@@ -430,6 +432,7 @@ class ItemsSliderSlick extends AbstractBlockLayout
             'type' => 'textarea',
             'options' => [
                 'label' => 'Title link style', // @translate
+                ''
             ],
         ]);
       
@@ -438,6 +441,7 @@ class ItemsSliderSlick extends AbstractBlockLayout
             'type' => Element\Number::class,
             'options' => [
                 'label' => 'Title length limit', // @translate
+                ''
             ],
         ]);
 
@@ -482,6 +486,7 @@ class ItemsSliderSlick extends AbstractBlockLayout
             'type' => Element\Number::class,
             'options' => [
                 'label' => 'Caption length limit', // @translate
+                ''
             ],
         ]);
 
