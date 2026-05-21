@@ -8,7 +8,7 @@ use BlocksAddon\Site\BlockLayout\PropertyListValues;
 class PropertyListValuesFactory implements FactoryInterface
 {
 
-    public function __invoke(ContainerInterface $serviceLocator, $requestedName, array $options = null)
+    public function __invoke(ContainerInterface $serviceLocator, $requestedName, ?array $options = null)
     {
          $class = new PropertyListValues();
          $class->setServiceLocator($serviceLocator);

@@ -10,12 +10,12 @@ use Omeka\Api\Representation\SitePageBlockRepresentation;
 use Omeka\Site\BlockLayout\AbstractBlockLayout;
 // use Omeka\Form\Element\ItemSetSelect;
 use Omeka\Form\Element as OmekaElement;
-use BlocksAddon\Common;
+use BlocksAddon\TraitGeneral;
 
 class ItemsSliderSlick extends AbstractBlockLayout
 {
 
-    use Common;
+    use TraitGeneral;
 
     public function getLabel()
     {
@@ -23,7 +23,7 @@ class ItemsSliderSlick extends AbstractBlockLayout
     }
 
     public function form(PhpRenderer $view, SiteRepresentation $site,
-        SitePageRepresentation $page = null, SitePageBlockRepresentation $block = null
+        ?SitePageRepresentation $page = null, ?SitePageBlockRepresentation $block = null
     ) {
         $defaults = [
             'blockTitle' => '',
@@ -54,6 +54,7 @@ class ItemsSliderSlick extends AbstractBlockLayout
             'slideCSSTextAlign' => 'center',
             'slideCSSStretch' => 'none',
             'breakPoint' => 820,
+            'responsive' => '',
             'autoSlideDuration' => 0,
             'loop' => 'true',
             'draggable' => 'true',
@@ -219,6 +220,18 @@ class ItemsSliderSlick extends AbstractBlockLayout
         ]);
 
         $generalForm->add([
+            'name' => 'o:block[__blockIndex__][o:data][responsive]',
+            'type' => 'textarea',
+            'options' => [
+                'label' => 'Responsive', // @translate
+                'info' => 'Display one item per slide when carousel width drops below given pixel width. Adjust for mobile display, carousels with many items per page, etc.', // @translate
+            ],
+            'attributes' => [
+                'placeholder' => 'Example: {"breakpoint": 768, "settings": {"slidesToShow": 2}},{"breakpoint": 1024, "settings": {"slidesToShow": 3}}',
+            ],
+        ]);
+
+        $generalForm->add([
             'name' => 'o:block[__blockIndex__][o:data][autoSlideDuration]',
             'type' => 'text',
             'options' => [
@@ -377,6 +390,7 @@ class ItemsSliderSlick extends AbstractBlockLayout
             'o:block[__blockIndex__][o:data][zIndex]' => $data['zIndex'],
             'o:block[__blockIndex__][o:data][slidesToScroll]' => $data['slidesToScroll'],
             'o:block[__blockIndex__][o:data][breakPoint]' => $data['breakPoint'],
+            'o:block[__blockIndex__][o:data][responsive]' => $data['responsive'],
             'o:block[__blockIndex__][o:data][autoSlideDuration]' => $data['autoSlideDuration'],
             'o:block[__blockIndex__][o:data][loop]' => $data['loop'],
             'o:block[__blockIndex__][o:data][fade]' => $fade,
@@ -795,6 +809,7 @@ class ItemsSliderSlick extends AbstractBlockLayout
             'slideCSSTextAlign' => $block->dataValue('slideCSSTextAlign'),
             'slideCSSStretch' => $block->dataValue('slideCSSStretch'),
             'breakPoint' => $block->dataValue('breakPoint'),
+            'responsive' => $block->dataValue('responsive'),
             'autoSlideDuration' => $block->dataValue('autoSlideDuration'),
             'loop' => $block->dataValue('loop'),
             'fade' => $block->dataValue('fade'),

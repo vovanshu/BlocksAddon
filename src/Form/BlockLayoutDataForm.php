@@ -6,12 +6,12 @@ use Laminas\EventManager\Event;
 use Laminas\Form\Form;
 use Laminas\View\HelperPluginManager;
 use Omeka\Site\Theme\Theme;
-use BlocksAddon\Common;
+use BlocksAddon\TraitGeneral;
 
 class BlockLayoutDataForm extends Form
 {
     use EventManagerAwareTrait;
-    use Common;
+    use TraitGeneral;
 
     protected $currentTheme;
 

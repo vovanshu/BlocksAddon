@@ -1,0 +1,3 @@
+div:has(> div.dummy_block) {
+  display: none;
+}

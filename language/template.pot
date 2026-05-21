@@ -1,191 +1,571 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
 msgid ""
 msgstr ""
-"Content-Transfer-Encoding: 8bit\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-21 13:14+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
-"POT-Creation-Date: 2026-02-02 16:21+0200\n"
-"Project-Id-Version: BlocksAddon\n"
-"X-Domain: BlocksAddon\n"
-"X-Generator: LanguagesManager\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 
-#: modules/BlocksAddon/src/Form/ItemsListFieldset.php:81
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:535
-msgid "Item title as link"
+#: src/Controller/Admin/SettingsController.php:41
+msgid "Disable block"
 msgstr ""
 
-#: modules/BlocksAddon/src/Form/ItemsListFieldset.php:99
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:452
-msgid "Show attachment thumbnail"
+#: src/Site/BlockLayout/ItemsList.php:44
+#: src/Site/BlockLayout/ItemsSliderSlick.php:733
+#: src/Site/BlockLayout/PropertyListValues.php:118
+msgid "Search query for attachments of Items"
 msgstr ""
 
-#: modules/BlocksAddon/src/Form/ItemsListFieldset.php:117
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:470
-msgid "Show attachment caption"
+#: src/Site/BlockLayout/ItemsSliderSlick.php:723
+msgid "General options"
 msgstr ""
 
-#: modules/BlocksAddon/src/Form/ItemsListFieldset.php:135
-msgid "Show button view"
+#: src/Site/BlockLayout/ItemsSliderSlick.php:727
+msgid "Slide options"
 msgstr ""
 
-#: modules/BlocksAddon/src/Form/ItemsSearchQueryFieldset.php:24
-msgid "Entries per page"
+#: view/blocks-addon/admin/settings/backuping.phtml:14
+msgid "Backup"
 msgstr ""
 
-#: modules/BlocksAddon/src/Form/ItemsSearchQueryFieldset.php:59
-#: modules/BlocksAddon/src/Form/ItemsSearchQueryFieldset.php:60
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:651
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:652
-#: modules/BlocksAddon/src/Site/BlockLayout/PropertyListValues.php:87
-#: modules/BlocksAddon/src/Site/BlockLayout/PropertyListValues.php:88
-msgid "Items site attachments only"
+#: view/blocks-addon/admin/settings/backuping.phtml:14
+msgid "blocks Addition"
 msgstr ""
 
-#: modules/BlocksAddon/src/Form/ItemsSearchQueryFieldset.php:95
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:687
-#: modules/BlocksAddon/src/Site/BlockLayout/PropertyListValues.php:99
-msgid "The search to be performed when the topic is clicked"
+#: view/blocks-addon/admin/settings/backuping.phtml:19
+#: view/blocks-addon/admin/settings/backups.phtml:15
+#: view/blocks-addon/admin/settings/edit.phtml:15
+#: view/blocks-addon/admin/settings/restore.phtml:19
+msgid "Backups"
 msgstr ""
 
-#: modules/BlocksAddon/src/Form/PropertieListValuesFieldset.php:60
-msgid "Show total values"
+#: view/blocks-addon/admin/settings/backups.phtml:15
+#: view/blocks-addon/admin/settings/edit.phtml:26
+msgid "Blocks Addition"
 msgstr ""
 
-#: modules/BlocksAddon/src/Form/PropertieListValuesFieldset.php:70
-msgid "Nav by page for values"
+#: view/blocks-addon/admin/settings/backups.phtml:19
+msgid "Backuping"
 msgstr ""
 
-#: modules/BlocksAddon/src/Form/PropertieListValuesFieldset.php:99
-msgid "sort_by"
+#: view/blocks-addon/admin/settings/backups.phtml:25
+msgid "Backups file no found."
 msgstr ""
 
-#: modules/BlocksAddon/src/Form/PropertieListValuesFieldset.php:101
-msgid "Alphabetic"
+#: view/blocks-addon/admin/settings/backups.phtml:33
+msgid "Actions"
 msgstr ""
 
-#: modules/BlocksAddon/src/Form/PropertieListValuesFieldset.php:115
-msgid "sort_order"
+#: view/blocks-addon/admin/settings/delete-confirm.phtml:6
+msgid "Delete backup"
 msgstr ""
 
-#: modules/BlocksAddon/src/Form/PropertieListValuesFieldset.php:117
-msgid "Asc"
+#: view/blocks-addon/admin/settings/delete-confirm.phtml:7
+#, php-format
+msgid "Are you sure you would like to delete the file %s?"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:129
+#: view/blocks-addon/admin/settings/details.phtml:5
+msgid "Details backup"
+msgstr ""
+
+#: view/blocks-addon/admin/settings/details.phtml:6
+#, php-format
+msgid "File %s backup content"
+msgstr ""
+
+#: view/blocks-addon/admin/settings/edit.phtml:21
+msgid "Update Locale template"
+msgstr ""
+
+#: view/blocks-addon/admin/settings/edit.phtml:32
+msgid "Maintenance"
+msgstr ""
+
+#: view/blocks-addon/admin/settings/restore-confirm.phtml:6
+msgid "Restore backup"
+msgstr ""
+
+#: view/blocks-addon/admin/settings/restore-confirm.phtml:7
+#, php-format
+msgid "Are you sure you would like to restore data from file %s?"
+msgstr ""
+
+#: view/blocks-addon/admin/settings/restore.phtml:14
+msgid "Vocabulary Addition"
+msgstr ""
+
+#: src/Site/BlockLayout/ItemsSliderSlick.php:22
+msgid "Items Slider (Slick)"
+msgstr ""
+
+#: src/Site/BlockLayout/ItemsSliderSlick.php:90
+#: src/Form/PropertieListValuesFieldset.php:20
+msgid "Block title"
+msgstr ""
+
+#: src/Site/BlockLayout/ItemsSliderSlick.php:106
+#: src/Form/ItemsListFieldset.php:32
+#: src/Form/PropertieListValuesFieldset.php:44
+msgid "Block style"
+msgstr ""
+
+#: src/Site/BlockLayout/ItemsSliderSlick.php:114
+#: src/Form/ItemsListFieldset.php:40
+#: src/Form/PropertieListValuesFieldset.php:36
+msgid "Block title style"
+msgstr ""
+
+#: src/Site/BlockLayout/ItemsSliderSlick.php:122
+msgid "Slider content style"
+msgstr ""
+
+#: src/Site/BlockLayout/ItemsSliderSlick.php:130
 msgid "Vertical slider"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:139
+#: src/Site/BlockLayout/ItemsSliderSlick.php:140
 msgid "Swipe to slide"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:149
+#: src/Site/BlockLayout/ItemsSliderSlick.php:150
 msgid "Items per slide"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:162
+#: src/Site/BlockLayout/ItemsSliderSlick.php:151
+msgid "The number of items shown per carousel slide"
+msgstr ""
+
+#: src/Site/BlockLayout/ItemsSliderSlick.php:163
 msgid "Slides to scroll"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:216
+#: src/Site/BlockLayout/ItemsSliderSlick.php:164
+msgid "The number of slides to scroll"
+msgstr ""
+
+#: src/Site/BlockLayout/ItemsSliderSlick.php:177
+msgid "Rows slider"
+msgstr ""
+
+#: src/Site/BlockLayout/ItemsSliderSlick.php:189
+msgid "Slides to scroll per row"
+msgstr ""
+
+#: src/Site/BlockLayout/ItemsSliderSlick.php:201
+msgid "zIndex"
+msgstr ""
+
+#: src/Site/BlockLayout/ItemsSliderSlick.php:209
+#: src/Site/BlockLayout/ItemsSliderSlick.php:314
+msgid "Speed slider"
+msgstr ""
+
+#: src/Site/BlockLayout/ItemsSliderSlick.php:217
 msgid "Breakpoint"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:225
+#: src/Site/BlockLayout/ItemsSliderSlick.php:218
+#: src/Site/BlockLayout/ItemsSliderSlick.php:227
+msgid ""
+"Display one item per slide when carousel width drops below given pixel "
+"width. Adjust for mobile display, carousels with many items per page, etc."
+msgstr ""
+
+#: src/Site/BlockLayout/ItemsSliderSlick.php:226
+msgid "Responsive"
+msgstr ""
+
+#: src/Site/BlockLayout/ItemsSliderSlick.php:238
 msgid "Auto slide duration"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:234
+#: src/Site/BlockLayout/ItemsSliderSlick.php:239
+msgid ""
+"Time in milliseconds to pause before auto advance (set to 0 to turn off)"
+msgstr ""
+
+#: src/Site/BlockLayout/ItemsSliderSlick.php:247
 msgid "Infinite loop"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:253
+#: src/Site/BlockLayout/ItemsSliderSlick.php:266
 msgid "Draggable"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:263
+#: src/Site/BlockLayout/ItemsSliderSlick.php:276
 msgid "Pause on hover"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:273
+#: src/Site/BlockLayout/ItemsSliderSlick.php:286
 msgid "Pause on focus"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:291
+#: src/Site/BlockLayout/ItemsSliderSlick.php:296
+msgid "Play-Pause button style"
+msgstr ""
+
+#: src/Site/BlockLayout/ItemsSliderSlick.php:304
 msgid "Center mode"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:309
+#: src/Site/BlockLayout/ItemsSliderSlick.php:322
 msgid "Display arrows"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:335
+#: src/Site/BlockLayout/ItemsSliderSlick.php:332
+msgid "Right Arrow style"
+msgstr ""
+
+#: src/Site/BlockLayout/ItemsSliderSlick.php:340
+msgid "Left Arrow style"
+msgstr ""
+
+#: src/Site/BlockLayout/ItemsSliderSlick.php:348
 msgid "Display dots"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:353
+#: src/Site/BlockLayout/ItemsSliderSlick.php:358
+msgid "Dot style"
+msgstr ""
+
+#: src/Site/BlockLayout/ItemsSliderSlick.php:366
 msgid "Fade between slides"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:354
+#: src/Site/BlockLayout/ItemsSliderSlick.php:367
 msgid "Note: only works with 1 item per slide"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:416
+#: src/Site/BlockLayout/ItemsSliderSlick.php:414
+msgid "Slide style"
+msgstr ""
+
+#: src/Site/BlockLayout/ItemsSliderSlick.php:422
+#: src/Form/ItemsListFieldset.php:65
+msgid "Block text style"
+msgstr ""
+
+#: src/Site/BlockLayout/ItemsSliderSlick.php:430
 msgid "General text length limit"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:425
+#: src/Site/BlockLayout/ItemsSliderSlick.php:439
+#: src/Form/ItemsListFieldset.php:73
 msgid "Title style"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:434
+#: src/Site/BlockLayout/ItemsSliderSlick.php:448
+#: src/Form/ItemsListFieldset.php:91
 msgid "Title link style"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:443
+#: src/Site/BlockLayout/ItemsSliderSlick.php:457
 msgid "Title length limit"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:488
+#: src/Site/BlockLayout/ItemsSliderSlick.php:466
+#: src/Form/ItemsListFieldset.php:99
+msgid "Show attachment thumbnail"
+msgstr ""
+
+#: src/Site/BlockLayout/ItemsSliderSlick.php:476
+#: src/Form/ItemsListFieldset.php:109
+msgid "Thumbnail style"
+msgstr ""
+
+#: src/Site/BlockLayout/ItemsSliderSlick.php:484
+#: src/Form/ItemsListFieldset.php:117
+msgid "Show attachment caption"
+msgstr ""
+
+#: src/Site/BlockLayout/ItemsSliderSlick.php:494
+#: src/Form/ItemsListFieldset.php:127
+msgid "Caption style"
+msgstr ""
+
+#: src/Site/BlockLayout/ItemsSliderSlick.php:502
 msgid "Caption length limit"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:497
+#: src/Site/BlockLayout/ItemsSliderSlick.php:511
 msgid "Overlay title/caption"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:498
-msgid "Place title/caption over image (may require adjusting theme CSS text settings)"
+#: src/Site/BlockLayout/ItemsSliderSlick.php:512
+msgid ""
+"Place title/caption over image (may require adjusting theme CSS text "
+"settings)"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:508
+#: src/Site/BlockLayout/ItemsSliderSlick.php:522
 msgid "Text align"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:521
+#: src/Site/BlockLayout/ItemsSliderSlick.php:535
 msgid "Stretch image"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:524
+#: src/Site/BlockLayout/ItemsSliderSlick.php:538
 msgid "Fill width"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:525
+#: src/Site/BlockLayout/ItemsSliderSlick.php:539
 msgid "Fill height"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:545
+#: src/Site/BlockLayout/ItemsSliderSlick.php:540
+msgid "Fill entire slide"
+msgstr ""
+
+#: src/Site/BlockLayout/ItemsSliderSlick.php:549
+#: src/Form/ItemsListFieldset.php:81
+msgid "Item title as link"
+msgstr ""
+
+#: src/Site/BlockLayout/ItemsSliderSlick.php:559
 msgid "Item thumbnail as link"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:555
+#: src/Site/BlockLayout/ItemsSliderSlick.php:569
 msgid "Display button view"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/ItemsSliderSlick.php:616
+#: src/Site/BlockLayout/ItemsSliderSlick.php:579
+#: src/Form/ItemsListFieldset.php:145
+msgid "Text button view"
+msgstr ""
+
+#: src/Site/BlockLayout/ItemsSliderSlick.php:587
+#: src/Form/ItemsListFieldset.php:153
+msgid "Style button view"
+msgstr ""
+
+#: src/Site/BlockLayout/ItemsSliderSlick.php:595
+msgid "Style in button view"
+msgstr ""
+
+#: src/Site/BlockLayout/ItemsSliderSlick.php:630
 msgid "Limit Items"
 msgstr ""
 
-#: modules/BlocksAddon/src/Site/BlockLayout/PropertyListValues.php:74
+#: src/Site/BlockLayout/ItemsSliderSlick.php:631
+msgid "The number of items shown in carousel"
+msgstr ""
+
+#: src/Site/BlockLayout/ItemsSliderSlick.php:635
+#: src/Form/ItemsSearchQueryFieldset.php:29
+msgid "max"
+msgstr ""
+
+#: src/Site/BlockLayout/ItemsSliderSlick.php:665
+#: src/Site/BlockLayout/ItemsSliderSlick.php:666
+#: src/Site/BlockLayout/PropertyListValues.php:87
+#: src/Site/BlockLayout/PropertyListValues.php:88
+#: src/Form/ItemsSearchQueryFieldset.php:59
+#: src/Form/ItemsSearchQueryFieldset.php:60
+msgid "Items site attachments only"
+msgstr ""
+
+#: src/Site/BlockLayout/ItemsSliderSlick.php:668
+#: src/Form/ItemsSearchQueryFieldset.php:62
+msgid "false"
+msgstr ""
+
+#: src/Site/BlockLayout/ItemsSliderSlick.php:701
+#: src/Site/BlockLayout/PropertyListValues.php:99
+#: src/Form/ItemsSearchQueryFieldset.php:95
+msgid "The search to be performed when the topic is clicked"
+msgstr ""
+
+#: src/Site/BlockLayout/ItemsList.php:23
+msgid "Items list"
+msgstr ""
+
+#: src/Site/BlockLayout/PropertyListValues.php:25
+msgid "List of Property Values"
+msgstr ""
+
+#: src/Site/BlockLayout/PropertyListValues.php:74
 msgid "Limit Entries"
+msgstr ""
+
+#: src/Site/BlockLayout/PropertyListValues.php:75
+msgid "The number of values shown in list per page"
+msgstr ""
+
+#: src/Controller/Admin/SettingsController.php:100
+msgid "Settings save successfully."
+msgstr ""
+
+#: src/Controller/Admin/SettingsController.php:116
+msgid "block_layouts_disabled"
+msgstr ""
+
+#: src/Controller/Admin/SettingsController.php:155
+msgid "Update Locale template add to Jobs."
+msgstr ""
+
+#: src/Controller/Admin/SettingsController.php:160
+msgid "Update Locale template not allowed."
+msgstr ""
+
+#: src/Controller/Admin/SettingsController.php:210
+msgid "Restore successfully."
+msgstr ""
+
+#: src/Controller/Admin/SettingsController.php:213
+msgid "Restore failed!"
+msgstr ""
+
+#: src/Controller/Admin/SettingsController.php:216
+msgid "Restore failed - file no found!"
+msgstr ""
+
+#: src/Controller/Admin/SettingsController.php:249
+msgid "File backup successfully deleted."
+msgstr ""
+
+#: src/TraitModule.php:114 src/TraitModule.php:399
+msgid "This module requires the module \"{module}\"."
+msgstr ""
+
+#: src/TraitModule.php:119
+msgid "This module requires modules \"{modules}\"."
+msgstr ""
+
+#: src/TraitModule.php:129
+msgid ""
+"This module cannot install its tables, because they exist already. Try to "
+"remove them first."
+msgstr ""
+
+#: src/TraitModule.php:307
+msgid "The module removed tables \"{tables}\" from a previous broken install."
+msgstr ""
+
+#: src/TraitModule.php:394
+msgid ""
+"This module requires the module \"{module}\", version {version} or above."
+msgstr ""
+
+#: src/TraitModule.php:507
+msgid ""
+"The module \"{module}\" was automatically deactivated because the "
+"dependencies are unavailable."
+msgstr ""
+
+#: src/TraitModule.php:526
+msgid "The directory \"{path}\" is not writeable."
+msgstr ""
+
+#: src/TraitModule.php:537
+msgid "The directory \"{path}\" is not writeable: {error}."
+msgstr ""
+
+#: src/Form/ItemsListFieldset.php:24
+msgid "Title block "
+msgstr ""
+
+#: src/Form/ItemsListFieldset.php:48
+msgid "List content style"
+msgstr ""
+
+#: src/Form/ItemsListFieldset.php:56
+msgid "Entrie wrapper style"
+msgstr ""
+
+#: src/Form/ItemsListFieldset.php:135
+msgid "Show button view"
+msgstr ""
+
+#: src/Form/ItemsListFieldset.php:161
+msgid "Style link in button view"
+msgstr ""
+
+#: src/Form/BlockLayoutDataForm.php:134
+msgid "Minimum width"
+msgstr ""
+
+#: src/Form/BlockLayoutDataForm.php:146
+msgid "Width"
+msgstr ""
+
+#: src/Form/BlockLayoutDataForm.php:158
+msgid "Maximum height"
+msgstr ""
+
+#: src/Form/BlockLayoutDataForm.php:182
+msgid "Height"
+msgstr ""
+
+#: src/Form/ItemsSearchQueryFieldset.php:24
+msgid "Entries per page"
+msgstr ""
+
+#: src/Form/ItemsSearchQueryFieldset.php:25
+msgid "The number of entries shown in page"
+msgstr ""
+
+#: src/Form/PropertieListValuesFieldset.php:28
+msgid "Title Url"
+msgstr ""
+
+#: src/Form/PropertieListValuesFieldset.php:52
+msgid "Block list style "
+msgstr ""
+
+#: src/Form/PropertieListValuesFieldset.php:60
+msgid "Show total values"
+msgstr ""
+
+#: src/Form/PropertieListValuesFieldset.php:70
+msgid "Nav by page for values"
+msgstr ""
+
+#: src/Form/PropertieListValuesFieldset.php:87
+msgid "chosen-select"
+msgstr ""
+
+#: src/Form/PropertieListValuesFieldset.php:99
+msgid "sort_by"
+msgstr ""
+
+#: src/Form/PropertieListValuesFieldset.php:101
+msgid "Alphabetic"
+msgstr ""
+
+#: src/Form/PropertieListValuesFieldset.php:102
+msgid "Total"
+msgstr ""
+
+#: src/Form/PropertieListValuesFieldset.php:115
+msgid "sort_order"
+msgstr ""
+
+#: src/Form/PropertieListValuesFieldset.php:117
+msgid "Asc"
+msgstr ""
+
+#: src/Form/PropertieListValuesFieldset.php:118
+msgid "Desc"
+msgstr ""
+
+#: config/module.config.php:7
+msgid "Settings Blocks Addition"
+msgstr ""
+
+#: view/blocks-addon/admin/settings/restore-confirm.phtml:3
+msgid "Confirm restore"
 msgstr ""

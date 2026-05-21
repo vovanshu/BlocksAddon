@@ -13,12 +13,12 @@ use Omeka\Site\BlockLayout\AbstractBlockLayout;
 // use Omeka\Form\Element\ItemSetSelect;
 use Omeka\Form\Element as OmekaElement;
 // use Omeka\Form\Element\PropertySelect;
-use BlocksAddon\Common;
+use BlocksAddon\TraitGeneral;
 
 class PropertyListValues extends AbstractBlockLayout
 {
 
-    use Common;
+    use TraitGeneral;
 
     public function getLabel()
     {
@@ -26,7 +26,7 @@ class PropertyListValues extends AbstractBlockLayout
     }
 
     public function form(PhpRenderer $view, SiteRepresentation $site,
-        SitePageRepresentation $page = null, SitePageBlockRepresentation $block = null
+        ?SitePageRepresentation $page = null, ?SitePageBlockRepresentation $block = null
     ) {
         $defaults = [
             'blockTitle' => '',
@@ -267,7 +267,7 @@ class PropertyListValues extends AbstractBlockLayout
         //         ->innerJoin('value', 'resource', 'resource', $expr->eq('resource.id', 'value.resource_id'))
         //         ->leftJoin('value', 'resource', 'value_resource', $expr->eq('value_resource.id', 'value.value_resource_id'));
         // } else {
-            $entityClass = $this->getAdapter('items')->getEntityClass();
+            $entityClass = $this->getApiAdapterManager('items')->getEntityClass();
             $qb
                 ->innerJoin('value', 'resource', 'resource', $expr->eq('resource.id', 'value.resource_id'))
                 ->innerJoin('value', 'item', 'vrs', $expr->eq('vrs.id', 'value.resource_id'))
@@ -384,11 +384,11 @@ class PropertyListValues extends AbstractBlockLayout
             return $this;
         }
         $expr = $qb->expr();
-        if($this->getCurentUserID()){
+        if($this->getCurrentUserID()){
                 
             $qb->andWhere($expr->or('resource.is_public = 1', 'resource.owner_id = :user_id'))
                 ->andWhere($expr->or('value.is_public = 1', 'value.resource_id = (SELECT r.id FROM resource r WHERE r.owner_id = :user_id AND r.id = value.resource_id)'))
-                ->setParameter('user_id', (int) $this->getCurentUserID(), ParameterType::INTEGER);
+                ->setParameter('user_id', (int) $this->getCurrentUserID(), ParameterType::INTEGER);
 
         }else{
             if(isset($data['is_public'])){

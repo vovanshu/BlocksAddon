@@ -1,0 +1,48 @@
+<?php
+
+$plugins = $this->getHelperPluginManager();
+$translate = $plugins->get('translate');
+$hyperlink = $plugins->get('hyperlink');
+$assetUrl = $plugins->get('assetUrl');
+
+$this->htmlElement('body')->appendAttribute('class', 'settings edit');
+
+$this->headLink()->appendStylesheet($assetUrl('css/settings.css', 'BlocksAddon'));
+$this->headScript()->appendFile($assetUrl('js/settings.js', 'BlocksAddon'), 'text/javascript', ['defer' => 'defer']);
+
+$maintenance = [];
+if ($this->userIsAllowed('BlocksAddon\Controller\Admin\SettingsController', 'backups')){
+    $maintenance[$translate('Backups')] = $this->url('admin/blocks-addon-settings', ['action' => 'backups']);
+}
+// if ($this->userIsAllowed('BlocksAddon\Controller\Admin\SettingsController', 'updoctrine')){
+//     $maintenance[$translate('Update Doctrine')] = $this->url('admin/blocks-addon-settings', ['action' => 'updoctrine']);
+// }
+if ($this->userIsAllowed('BlocksAddon\Controller\Admin\SettingsController', 'uplocaletpl')){
+    $maintenance[$translate('Update Locale template')] = $this->url('admin/blocks-addon-settings', ['action' => 'uplocaletpl']);
+}
+
+$form->prepare();
+?>
+<?= $this->pageTitle($translate('Settings'), 1, $translate('Blocks Addition')) ?>
+<?= $this->form()->openTag($form) ?>
+
+<div id="page-actions">
+    <?php if (!empty($maintenance)): ?>
+        <?php if (count($maintenance) > 1): ?>
+    <a href="#" id="expand-menu" class="collapsed button expand-more" aria-label="<?= $translate('Maintenance') ?>" title="<?= $translate('Maintenance') ?>" aria-expanded="false" aria-target="#maintenance-menu"><?= $translate('Maintenance') ?></a>
+    <ul id="maintenance-menu" class="collapsible-menu">
+        <?php foreach ($maintenance as $title => $url): ?>
+        <li>
+            <a href="<?= $url ?>" class="link"><?= $title ?></a>
+        </li>
+        <?php endforeach; ?>
+    </ul>
+        <?php else: ?>
+            <a href="<?= current($maintenance) ?>" class="button"><?= key($maintenance) ?></a>
+        <?php endif; ?>
+    <?php endif; ?>
+    <button type="submit"><?= $translate('Save') ?></button>
+</div>
+
+<?= $this->formCollection($form, false) ?>
+<?= $this->form()->closeTag() ?>

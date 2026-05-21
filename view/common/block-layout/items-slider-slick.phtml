@@ -18,7 +18,7 @@ $valueLang = $filterLocale ? [$lang, ''] : null;
 			}
 			$media = $attachment->media() ? $attachment->media()[0] : $attachment->primaryMedia();
 
-			$attachmentUrl = $attachment->siteUrl(Null, True);
+			$attachmentUrl = $attachment->siteUrl();
 
 			if ($this->showTitleOption == 'item_title') {
 				$textTitle = $attachment->displayTitle(null, $valueLang);
@@ -129,7 +129,9 @@ $valueLang = $filterLocale ? [$lang, ''] : null;
 				rows: <?= $this->sliderRows ?>,
 				slidesPerRow: <?= $this->slidesPerRow ?>,
 				zIndex: <?= $this->zIndex ?>,
-				<?php if (!empty($this->breakPoint)): ?>
+				<?php if (!empty($this->responsive)): ?>
+				responsive: [<?php echo $this->responsive ?>]
+				<?php elseif (!empty($this->breakPoint)): ?>
 				responsive: [
 					{
 						breakpoint: <?php echo $this->breakPoint ?>,

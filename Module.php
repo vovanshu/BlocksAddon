@@ -1,29 +1,83 @@
 <?php
 namespace BlocksAddon;
 
-if (!class_exists(\Common\TraitModule::class)) {
-    require_once dirname(__DIR__) . '/Common/TraitModule.php';
-}
+require_once __DIR__ . '/src/TraitGeneral.php';
+require_once __DIR__ . '/src/TraitModule.php';
 
-if (!class_exists(Common::class)) {
-    require_once __DIR__ . '/Common.php';
-}
-
-use Laminas\EventManager\Event;
 use Zend\EventManager\SharedEventManagerInterface;
+use Laminas\EventManager\Event;
+use Laminas\View\Renderer\PhpRenderer;
+use Laminas\ModuleManager\ModuleEvent;
 use Omeka\Module\AbstractModule;
+use Omeka\Permissions\Acl;
 use Omeka\Form\Element\LengthCssDataType;
-use Common\TraitModule;
-use BlocksAddon\Common;
+use BlocksAddon\TraitGeneral;
+use BlocksAddon\TraitModule;
 
 class Module extends AbstractModule
 {
 
+    use TraitGeneral;
     use TraitModule;
 
-    use Common;
+    // const NAMESPACE = __NAMESPACE__;
+    public function onEventMergeConfig(ModuleEvent $event): void
+    {
 
-    const NAMESPACE = __NAMESPACE__;
+        if(file_exists(OMEKA_PATH . '/config/custom.config.php')){
+            $custom_config = include OMEKA_PATH . '/config/custom.config.php';
+            if(!empty($custom_config) && !empty($custom_config['BlocksAddon']['block_layouts_disabled'])){
+                /** @var \Laminas\ModuleManager\Listener\ConfigListener $configListener */
+                $configListener = $event->getParam('configListener');
+                // At this point, the config is read only, so it is copied and replaced.
+                $config = $configListener->getMergedConfig(false);
+                if(!empty($config['block_layouts']['invokables'])){
+                    foreach($config['block_layouts']['invokables'] as $key => $obj){
+                        if(in_array($key, $custom_config['BlocksAddon']['block_layouts_disabled'])){
+                            $config['block_layouts']['invokables'][$key] = Site\BlockLayout\Dummy::class;
+                        }
+                    }
+                }
+                if(!empty($config['block_layouts']['factories'])){
+                    foreach($config['block_layouts']['factories'] as $key => $obj){
+                        if(in_array($key, $custom_config['BlocksAddon']['block_layouts_disabled'])){
+                            $config['block_layouts']['factories'][$key] = Service\BlockLayout\DummyFactory::class;
+                        }
+                    }
+                }
+
+                // $config = array_replace_recursive($config, $custom_config);
+                $configListener->setMergedConfig($config);
+            }
+        }
+
+    }
+
+    protected function addDefAclRules()
+    {
+
+        $this->getAcl()->deny(
+            null,
+            [
+                Controller\Admin\SettingsController::class
+            ]
+        );
+
+        $this->getAcl()->deny(
+            Acl::ROLE_SITE_ADMIN,
+            [
+                Controller\Admin\SettingsController::class
+            ]
+        );
+
+    }
+
+    public function getConfigForm(PhpRenderer $renderer)
+    {
+
+        return $this->redirecToURL($renderer->url('admin/blocks-addon-settings', ['action' => 'edit']));
+        
+    }
 
     public function attachListeners(SharedEventManagerInterface $sharedEventManager)
     {
@@ -50,6 +104,14 @@ class Module extends AbstractModule
             '*',
             'block_layout.inline_styles',
             [$this, 'changeInlineStyles']
+        );
+
+
+        $sharedEventManager->attach(
+            '*',
+            'view.layout',
+            [$this, 'handleViewLayout'],
+            -1001
         );
 
     }
@@ -101,4 +163,12 @@ class Module extends AbstractModule
 
     }
 
+    public function handleViewLayout(Event $event): void
+    {
+
+        $view = $event->getTarget();
+        $view->headLink()->appendStylesheet($view->assetUrl('css/blocksaddon.css', 'BlocksAddon'));
+        $view->headScript()->appendFile($view->assetUrl('js/blocksaddon.js', 'BlocksAddon'));
+
+    }
 }

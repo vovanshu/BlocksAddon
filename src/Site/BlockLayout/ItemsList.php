@@ -10,12 +10,13 @@ use Omeka\Api\Representation\SitePageBlockRepresentation;
 use Omeka\Site\BlockLayout\AbstractBlockLayout;
 // use Omeka\Form\Element\ItemSetSelect;
 use Omeka\Form\Element as OmekaElement;
-use BlocksAddon\Common;
+use BlocksAddon\TraitGeneral;
 
 class ItemsList extends AbstractBlockLayout
 {
 
-    use Common;
+    use TraitGeneral;
+
 
     public function getLabel()
     {
@@ -23,7 +24,7 @@ class ItemsList extends AbstractBlockLayout
     }
 
     public function form(PhpRenderer $view, SiteRepresentation $site,
-        SitePageRepresentation $page = null, SitePageBlockRepresentation $block = null
+        ?SitePageRepresentation $page = null, ?SitePageBlockRepresentation $block = null
     ) {
         
         $defaults = $this->getConf('default_falues', 'itemslist');
