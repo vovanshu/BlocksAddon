@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-21 13:14+0300\n"
+"POT-Creation-Date: 2026-05-22 14:47+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -405,35 +405,39 @@ msgstr ""
 msgid "The number of values shown in list per page"
 msgstr ""
 
-#: src/Controller/Admin/SettingsController.php:100
+#: src/Controller/Admin/SettingsController.php:148
 msgid "Settings save successfully."
 msgstr ""
 
-#: src/Controller/Admin/SettingsController.php:116
-msgid "block_layouts_disabled"
+#: src/Controller/Admin/SettingsController.php:150
+msgid "Settings save failed."
 msgstr ""
 
-#: src/Controller/Admin/SettingsController.php:155
-msgid "Update Locale template add to Jobs."
-msgstr ""
-
-#: src/Controller/Admin/SettingsController.php:160
-msgid "Update Locale template not allowed."
+#: src/Controller/Admin/SettingsController.php:172
+msgid "BlocksAddon"
 msgstr ""
 
 #: src/Controller/Admin/SettingsController.php:210
+msgid "Update Locale template add to Jobs."
+msgstr ""
+
+#: src/Controller/Admin/SettingsController.php:215
+msgid "Update Locale template not allowed."
+msgstr ""
+
+#: src/Controller/Admin/SettingsController.php:265
 msgid "Restore successfully."
 msgstr ""
 
-#: src/Controller/Admin/SettingsController.php:213
+#: src/Controller/Admin/SettingsController.php:268
 msgid "Restore failed!"
 msgstr ""
 
-#: src/Controller/Admin/SettingsController.php:216
+#: src/Controller/Admin/SettingsController.php:271
 msgid "Restore failed - file no found!"
 msgstr ""
 
-#: src/Controller/Admin/SettingsController.php:249
+#: src/Controller/Admin/SettingsController.php:304
 msgid "File backup successfully deleted."
 msgstr ""
 

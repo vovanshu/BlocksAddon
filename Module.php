@@ -20,7 +20,6 @@ class Module extends AbstractModule
     use TraitGeneral;
     use TraitModule;
 
-    // const NAMESPACE = __NAMESPACE__;
     public function onEventMergeConfig(ModuleEvent $event): void
     {
 
@@ -45,8 +44,6 @@ class Module extends AbstractModule
                         }
                     }
                 }
-
-                // $config = array_replace_recursive($config, $custom_config);
                 $configListener->setMergedConfig($config);
             }
         }

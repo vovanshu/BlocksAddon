@@ -76,7 +76,7 @@ return [
                             ],
                             'defaults' => [
                                 '__NAMESPACE__' => 'BlocksAddon\Controller\Admin',
-                                '__CONTROLLER__' => 'Settings',
+                                '__CONTROLLER__' => 'settings',
                                 'controller' => Controller\Admin\SettingsController::class,
                                 'action' => 'edit',
                             ],

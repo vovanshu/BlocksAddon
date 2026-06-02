@@ -54,7 +54,7 @@ class SettingsController extends AbstractActionController
                     ],
                     'attributes' => [
                         'id' => $key,
-                        'value' => $this->getCustomConfval($key),
+                        'value' => $this->getCustomConfval('block_layouts_disabled', $key),
                     ],
                 ]);
             }
@@ -68,13 +68,59 @@ class SettingsController extends AbstractActionController
 
     }
 
-    public function getCustomConfval($key){
-        $val = $this->getConf('block_layouts_disabled', $key);
-        if(!empty($val) && $val == $key){
-            return 'true';
-        }
+    // public function getCustomConfval($key){
+    //     $val = $this->getConf('block_layouts_disabled', $key);
+    //     if(!empty($val) && $val == $key){
+    //         return 'true';
+    //     }
+    //     return 'false';
+    // }
+
+    public function getCustomConfVal($key, $child = Null)
+    {
+
+        // if($this->isSetNotInCustomConf($key)){
+        //     return$this->getConf($key);
+        // }else{
+            if(!empty($child)){
+                $def = $this->getConf('custom_configs', $key.'_'.$child);
+            }else{
+                $def = $this->getConf('custom_configs', $key);
+            }
+            $file = OMEKA_PATH . '/config/custom.config.php';
+            $config = [];
+            if(file_exists($file)){
+                if(function_exists('opcache_invalidate')){
+                    opcache_invalidate($file, true);    
+                }
+                $config = (include $file);
+            }
+            if(!empty($config) && !empty($config['BlocksAddon'][$key])){
+                if(!empty($child) && !empty($config['BlocksAddon'][$key][$child]) &&($config['BlocksAddon'][$key][$child] == $child || $config['BlocksAddon'][$key][$child] == 'true')){
+                    return 'true'; 
+                }elseif($config['BlocksAddon'][$key] == $key || $config['BlocksAddon'][$key] == 'true'){
+                    return 'true'; 
+                }elseif($def !== False){
+                    return $def;
+                }                
+            }
+        // }
         return 'false';
     }
+
+    // public function isSetNotInCustomConf($key)
+    // {
+
+    //     if($this->getConf($key) !== False){
+    //         $file = OMEKA_PATH . '/config/custom.config.php';
+    //         $config = file_exists($file) ? include $file : [];
+    //         if(empty($config) || !isset($config['AdminAddon'][$key])){
+    //             return True;
+    //         }
+    //     }
+    //     return False;
+
+    // }
 
     private function saveSettings($blocks)
     {
@@ -104,8 +150,7 @@ class SettingsController extends AbstractActionController
                 $this->messenger()->addError('Settings save failed.'); // @translate
             }
 
-            // return $this->redirect()->refresh();
-            return $this->redirect()->toRoute('admin/blocks-addon-settings', ['action' => 'edit']);
+            return $this->redirect()->refresh();
         }
 
     }
@@ -119,6 +164,12 @@ class SettingsController extends AbstractActionController
             if(isset($config['BlocksAddon']['block_layouts_disabled'][$key])){
                 unset($config['BlocksAddon']['block_layouts_disabled'][$key]);
             }
+        }
+        if(isset($config['BlocksAddon']['block_layouts_disabled']) && empty($config['BlocksAddon']['block_layouts_disabled'])){
+            unset($config['BlocksAddon']['block_layouts_disabled']);
+        }
+        if(isset($config['BlocksAddon']) && empty($config['BlocksAddon'])){
+            unset($config['BlocksAddon']);
         }
 
         return $config;
